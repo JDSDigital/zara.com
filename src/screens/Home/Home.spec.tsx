@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react'
 
-import { Home } from "./Home";
+import { Home } from './Home'
 
-describe("Home", () => {
-  it("renders", () => {
-    render(<Home />);
+describe('Home', () => {
+  it('renders', () => {
+    render(<Home />)
 
-    expect(screen.getByText(/home/i)).toBeInTheDocument();
-  });
-});
+    expect(screen.getByText(/home/i)).toBeInTheDocument()
+  })
+})
