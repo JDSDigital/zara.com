@@ -1,5 +1,7 @@
 import './index.css'
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
@@ -8,10 +10,20 @@ import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      cacheTime: 1000 * 60 * 60 * 24 // 24 hours
+    }
+  }
+})
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>
 )

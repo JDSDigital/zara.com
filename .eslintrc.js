@@ -21,6 +21,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-definitions': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/no-floating-promises': 0,
+    '@typescript-eslint/no-namespace': 0,
     '@typescript-eslint/strict-boolean-expressions': 0,
     'react/react-in-jsx-scope': 0
   }
