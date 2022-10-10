@@ -1,11 +1,20 @@
-import { render, screen } from '@testing-library/react'
+import { render, waitFor } from 'tests/app-test-utils'
 
 import { Home } from './Home'
+import { PodcastRepository } from 'api/repositories/PodcastRepository'
 
 describe('Home', () => {
-  it('renders', () => {
+  const podcastMock = jest.fn()
+
+  beforeEach(() => {
+    jest.spyOn(PodcastRepository, 'getPodcasts').mockImplementation(podcastMock)
+  })
+
+  it('renders', async () => {
     render(<Home />)
 
-    expect(screen.getByText(/home/i)).toBeInTheDocument()
+    await waitFor(() => {
+      expect(podcastMock).toHaveBeenCalled()
+    })
   })
 })
