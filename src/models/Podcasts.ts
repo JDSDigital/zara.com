@@ -12,5 +12,10 @@ export type Podcast = {
 
 export type PodcastList = Podcast[]
 
-export type Episode = any
+export type Episode = {
+  id: string
+  name: string
+  date: string
+  duration?: string
+}
 export type EpisodeList = Episode[]
