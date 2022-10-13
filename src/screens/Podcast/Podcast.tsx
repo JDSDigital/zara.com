@@ -20,7 +20,7 @@ export const Podcast = () => {
 
         <div className={styles.episodes}>
           <Card>
-            <strong>Episodes: {total} </strong>
+            <strong className={styles.count}>Episodes: {total} </strong>
           </Card>
 
           <Card>
