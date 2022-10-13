@@ -16,6 +16,8 @@ export type Episode = {
   id: string
   name: string
   date: string
+  description?: string
+  url?: string
   duration?: string
 }
 export type EpisodeList = Episode[]

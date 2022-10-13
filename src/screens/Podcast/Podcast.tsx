@@ -1,10 +1,11 @@
+import { Link, useParams } from 'react-router-dom'
+
 import { Card } from 'components/Card'
 import { Layout } from 'components/Layout'
 import { PodcastDetail } from './PodcastDetail'
 import styles from './Podcast.module.css'
 import { useGetPodcastDetail } from 'hooks/useGetPodcastDetail'
 import { useGetPodcastEpisodes } from 'hooks/useGetPodcastEpisodes'
-import { useParams } from 'react-router-dom'
 
 export const Podcast = () => {
   const { id } = useParams()
@@ -39,7 +40,9 @@ export const Podcast = () => {
               {episodes.map((episode) => (
                 <tr key={episode.id}>
                   <td>
-                    <span>{episode.name}</span>
+                    <Link to={`/podcast/${podcast.id}/episode/${episode.id}`}>
+                      <span>{episode.name}</span>
+                    </Link>
                   </td>
                   <td>
                     <span>{episode.date}</span>

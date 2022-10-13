@@ -35,14 +35,16 @@ export const PodcastRepository: PodcastRepositoryType = {
 
   getEpisodes: async ({ podcastId }) => {
     const { data }: AxiosResponse = await ApiClient.get(
-      `/lookup?id=${podcastId}&entity=podcastEpisode`,
+      `/lookup?id=${podcastId}&entity=podcastEpisode&limit=100`,
       {
         transformResponse: (data) => {
           const response: GetEpisodesEndpointResponse = JSON.parse(data)
 
+          const episodes = episodeMapper(response.results)
+
           return {
-            episodes: episodeMapper(response.results),
-            total: response.resultCount
+            episodes,
+            total: episodes.length
           }
         }
       }
