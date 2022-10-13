@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { Link } from 'react-router-dom'
 import { Podcast } from 'models/Podcasts'
 import styles from './PodcastCard.module.css'
 
@@ -8,16 +9,18 @@ type PodcastCardProps = {
 
 export const PodcastCard: FC<PodcastCardProps> = ({ podcast }) => {
   return (
-    <div className={styles.card}>
-      <div className={styles.imageContainer}>
-        <img
-          alt={podcast.name}
-          src={podcast.image.src}
-          className={styles.image}
-        />
+    <Link to={`/podcast/${podcast.id}`}>
+      <div className={styles.card}>
+        <div className={styles.imageContainer}>
+          <img
+            alt={podcast.name}
+            src={podcast.image.src}
+            className={styles.image}
+          />
+        </div>
+        <strong className={styles.name}>{podcast.name.toUpperCase()}</strong>
+        <span className={styles.artist}>{podcast.artist}</span>
       </div>
-      <strong className={styles.name}>{podcast.name.toUpperCase()}</strong>
-      <span className={styles.artist}>{podcast.artist}</span>
-    </div>
+    </Link>
   )
 }
