@@ -15,4 +15,10 @@
 
 .title {
   margin-bottom: 8px;
+  color: initial;
+}
+
+.italic {
+  font-style: italic;
+  color: initial;
 }
