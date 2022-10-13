@@ -1,13 +1,32 @@
 .list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 232px);
   justify-content: space-between;
-  gap: 24px;
+  grid-gap: 24px;
 }
 
 .cover {
   top: -100px;
   width: 50%;
   height: 100px;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 48px;
+}
+
+.searchContainer > input {
+  border-radius: 8px;
+  border: 1px solid #858585;
+  padding: 8px;
+}
+
+.searchCounter {
+  background-color: var(--color-primary);
+  padding: 8px;
+  margin-right: 12px;
+  color: white;
+  border-radius: 8px;
 }
