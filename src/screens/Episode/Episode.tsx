@@ -11,28 +11,33 @@ export const Episode = () => {
   const { podcast } = useGetPodcastDetail({ id: podcastId })
   const { episode } = useGetPodcastEpisodeDetail({ podcastId, episodeId })
 
-  if (!podcast || !episode) return <></>
-
   return (
     <Layout>
-      <div className={styles.container}>
-        <PodcastDetail podcast={podcast} />
+      {podcast && episode && (
+        <div className={styles.container}>
+          <PodcastDetail podcast={podcast} />
 
-        <div className={styles.episode}>
-          <Card>
-            <strong className={styles.name}>{episode.name}</strong>
+          <div className={styles.episode}>
+            <Card>
+              <strong className={styles.name}>{episode.name}</strong>
 
-            <p
-              className={styles.description}
-              dangerouslySetInnerHTML={{ __html: episode.description ?? '' }}
-            />
+              <p
+                className={styles.description}
+                dangerouslySetInnerHTML={{ __html: episode.description ?? '' }}
+              />
 
-            <div className={styles.divider} />
+              <div className={styles.divider} />
 
-            <audio controls src={episode.url} className={styles.audio} />
-          </Card>
+              <audio
+                controls
+                aria-label="episode audio"
+                src={episode.url}
+                className={styles.audio}
+              />
+            </Card>
+          </div>
         </div>
-      </div>
+      )}
     </Layout>
   )
 }
