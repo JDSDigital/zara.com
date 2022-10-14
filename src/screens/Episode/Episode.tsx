@@ -1,4 +1,5 @@
 import { Card } from 'components/Card'
+import { Divider } from 'components/Divider'
 import { Layout } from 'components/Layout'
 import { PodcastDetail } from 'screens/Podcast/PodcastDetail'
 import styles from './Episode.module.css'
@@ -29,7 +30,7 @@ export const Episode = () => {
                   }}
                 />
 
-                <div className={styles.divider} />
+                <Divider />
 
                 <audio
                   controls
