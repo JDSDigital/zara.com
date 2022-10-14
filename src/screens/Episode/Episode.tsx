@@ -13,28 +13,32 @@ export const Episode = () => {
 
   return (
     <Layout>
-      {podcast && episode && (
+      {podcast && (
         <div className={styles.container}>
           <PodcastDetail podcast={podcast} />
 
           <div className={styles.episode}>
-            <Card>
-              <strong className={styles.name}>{episode.name}</strong>
+            {episode && (
+              <Card>
+                <strong className={styles.name}>{episode.name}</strong>
 
-              <p
-                className={styles.description}
-                dangerouslySetInnerHTML={{ __html: episode.description ?? '' }}
-              />
+                <p
+                  className={styles.description}
+                  dangerouslySetInnerHTML={{
+                    __html: episode.description ?? ''
+                  }}
+                />
 
-              <div className={styles.divider} />
+                <div className={styles.divider} />
 
-              <audio
-                controls
-                aria-label="episode audio"
-                src={episode.url}
-                className={styles.audio}
-              />
-            </Card>
+                <audio
+                  controls
+                  aria-label="episode audio"
+                  src={episode.url}
+                  className={styles.audio}
+                />
+              </Card>
+            )}
           </div>
         </div>
       )}

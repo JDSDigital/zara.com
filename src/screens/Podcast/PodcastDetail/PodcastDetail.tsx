@@ -12,7 +12,7 @@ export const PodcastDetail: FC<PodcastDetailProps> = ({ podcast }) => {
   return (
     <div className={styles.container}>
       <Card>
-        <Link to={`/podcast/${podcast.id}`}>
+        <Link className={styles.imageLink} to={`/podcast/${podcast.id}`}>
           <img
             alt={podcast.name}
             src={podcast.image.src}
