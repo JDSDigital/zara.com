@@ -3,11 +3,6 @@
   line-height: 1.3em;
 }
 
-.divider {
-  margin: 16px 0;
-  border-bottom: 1px solid var(--color-secondary);
-}
-
 .image {
   align-self: center;
   width: 80%;
@@ -21,4 +16,8 @@
 .italic {
   font-style: italic;
   color: initial;
+}
+
+.imageLink {
+  text-align: center;
 }

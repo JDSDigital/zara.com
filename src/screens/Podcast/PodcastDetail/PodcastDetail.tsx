@@ -1,4 +1,5 @@
 import { Card } from 'components/Card'
+import { Divider } from 'components/Divider'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { Podcast } from 'models/Podcasts'
@@ -12,7 +13,7 @@ export const PodcastDetail: FC<PodcastDetailProps> = ({ podcast }) => {
   return (
     <div className={styles.container}>
       <Card>
-        <Link to={`/podcast/${podcast.id}`}>
+        <Link className={styles.imageLink} to={`/podcast/${podcast.id}`}>
           <img
             alt={podcast.name}
             src={podcast.image.src}
@@ -20,7 +21,7 @@ export const PodcastDetail: FC<PodcastDetailProps> = ({ podcast }) => {
           />
         </Link>
 
-        <div className={styles.divider} />
+        <Divider />
 
         <Link to={`/podcast/${podcast.id}`}>
           <strong className={styles.title}>{podcast.name}</strong>
@@ -29,7 +30,7 @@ export const PodcastDetail: FC<PodcastDetailProps> = ({ podcast }) => {
           <span className={styles.italic}>by {podcast.artist}</span>
         </Link>
 
-        <div className={styles.divider} />
+        <Divider />
 
         <strong className={styles.title}>Description:</strong>
         <span className={styles.italic}>{podcast.description}</span>
