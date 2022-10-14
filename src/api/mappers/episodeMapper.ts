@@ -1,4 +1,5 @@
 import { EpisodeList } from 'models/Podcasts'
+import sanitizeHtml from 'sanitize-html'
 
 const parseMilliseconds = (miliseconds: number) => {
   if (!miliseconds) return '--:--:--'
@@ -18,7 +19,7 @@ export const episodeMapper = (episodes: any): EpisodeList => {
     .map((episode: any) => ({
       id: episode.trackId.toString(),
       name: episode.trackName,
-      description: episode.description,
+      description: sanitizeHtml(episode.description),
       url: episode.episodeUrl,
       date: new Date(episode.releaseDate).toLocaleDateString(),
       duration: parseMilliseconds(episode.trackTimeMillis)
