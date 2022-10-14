@@ -9,7 +9,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@tanstack/query-sync-storage-persister": "^4.12.0",
     "@tanstack/react-query": "^4.10.1",
+    "@tanstack/react-query-persist-client": "^4.12.0",
     "axios": "^0.27.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

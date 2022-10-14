@@ -6,6 +6,8 @@ import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister'
+import { persistQueryClient } from '@tanstack/react-query-persist-client'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
@@ -16,6 +18,15 @@ const queryClient = new QueryClient({
       cacheTime: 1000 * 60 * 60 * 24 // 24 hours
     }
   }
+})
+
+const localStoragePersister = createSyncStoragePersister({
+  storage: window.localStorage
+})
+
+persistQueryClient({
+  queryClient,
+  persister: localStoragePersister
 })
 
 root.render(
